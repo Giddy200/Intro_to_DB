@@ -1,7 +1,4 @@
--- CREATE DATABASE
-CREATE DATABASE IF NOT EXISTS alx_book_store;
-
--- SELECT DATABASE
+-- Switch to the alx_book_store database
 USE alx_book_store;
 
 -- Authors TABLE
@@ -24,7 +21,7 @@ CREATE TABLE IF NOT EXISTS Books (
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_name VARCHAR(215) NOT NULL,
-    email VARCHAR(215) UNIQUE NOT NULL,
+    email VARCHAR(215) NOT NULL,
     address TEXT
 );
 
@@ -32,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Customers (
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
-    order_date DATE NOT NULL,
+    order_date DATE,
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
